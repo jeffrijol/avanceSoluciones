@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import 'Screens/RentalHouse/rental_house_home.dart';
+import 'Screens/RentalHouse/rental_house_services.dart';
 import 'routes.dart';
 
 class HomePage extends StatelessWidget {
@@ -53,6 +54,7 @@ class HomePage extends StatelessWidget {
           );
         });
       },
+      
       debugShowCheckedModeBanner: false,
     );
   }
@@ -63,7 +65,7 @@ class HomePage extends StatelessWidget {
       case RentalHouseHome.name:
         return const RentalHouseHome();
       default:
-        return const RentalHouseHome();
+        return const RentalHouseServices();
     }
   }
 }
