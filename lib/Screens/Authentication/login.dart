@@ -3,9 +3,9 @@ import 'package:provider/provider.dart';
 import 'package:activos/Provider/AuthProvider/auth_provider.dart';
 import 'package:activos/Utils/snack_message.dart';
 
-import '../../Widgets/gradient_button.dart';
-import '../../Widgets/login_field.dart';
-import '../../Widgets/social_button.dart';
+import '../../Utils/WidgetsLogin/gradient_button.dart';
+import '../../Utils/WidgetsLogin/login_field.dart';
+import '../../Utils/WidgetsLogin/social_button.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -34,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               Image.asset('assets/images/signin_balls.png'),
               const Text(
-                'Sign in',
+                'Iniciar sesión',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 50,
@@ -61,13 +61,15 @@ class _LoginPageState extends State<LoginPage> {
               loginField(
                 title: 'Email',
                 controller: _email,
-                hint: 'Enter you valid email address',
+                hint: 'Indique su correo electrónico',
+                obscureText: false
               ),
               const SizedBox(height: 15),
               loginField(
-                title: 'Password',
+                title: 'Contraseña',
                 controller: _password,
-                hint: 'Enter your secured password',
+                hint: 'Indique su clave de seguridad',
+                obscureText: true
               ),
               const SizedBox(height: 20),
               ///Button
@@ -83,12 +85,11 @@ class _LoginPageState extends State<LoginPage> {
                         }
                       });
                       return gradientButton(
-                        text: 'Login',
+                        text: 'Entrar',
                         tap: () {
                           if (_email.text.isEmpty || _password.text.isEmpty) {
-                            print('vacios ');
                             showMessage(
-                                message: "All fields are required",
+                                message: "Todos los campos son requeridos",
                                 context: context);
                           } else {
                             auth.loginUser(

@@ -5,6 +5,7 @@ import '../Styles/colors.dart';
 Widget loginField(
     {String? title,
     String? hint,
+    bool? obscureText,
     TextEditingController? controller,
     int? maxLines = 1}) {
     return ConstrainedBox(
@@ -13,6 +14,7 @@ Widget loginField(
       ),
       child: TextFormField(
         controller: controller,
+        obscureText: obscureText! == true ? obscureText : false,
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.all(27),
           enabledBorder: OutlineInputBorder(

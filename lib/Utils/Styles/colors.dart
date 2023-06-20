@@ -18,9 +18,9 @@ Color black = const Color(0xff06051B);
 
 class Pallete {
   static const Color backgroundColor = Color.fromRGBO(24, 24, 32, 1);
-  static const Color gradient1 = Color.fromRGBO(187, 63, 221, 1);
-  static const Color gradient2 = Color.fromRGBO(251, 109, 169, 1);
-  static const Color gradient3 = Color.fromRGBO(255, 159, 124, 1);
+  static const Color gradient1 = Color.fromRGBO(11, 11, 104, 1);
+static const Color gradient2 = Color.fromRGBO(85, 153, 255, 1);
+static const Color gradient3 = Color.fromRGBO(170, 204, 255, 1);
   static const Color borderColor = Color.fromRGBO(52, 51, 67, 1);
   static const Color whiteColor = Colors.white;
 }

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:activos/Provider/TaskProvider/delete_task_provider.dart';
-import 'package:activos/Styles/colors.dart';
+import 'package:activos/Utils/Styles/colors.dart';
 import 'package:activos/Utils/snack_message.dart';
-import 'package:activos/Widgets/text_field.dart';
+import 'package:activos/Utils/WidgetsLogin/text_field.dart';
 
 class TaskDetailsPage extends StatefulWidget {
   const TaskDetailsPage({Key? key, this.title, this.taskId}) : super(key: key);

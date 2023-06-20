@@ -10,6 +10,7 @@ class RentalHouseModel {
     required this.services,
     required this.managedByUser,
     required this.v,
+    required this.isActive,
   });
   late final String id;
   late final String address;
@@ -21,6 +22,7 @@ class RentalHouseModel {
   late final List<Services> services;
   late final String managedByUser;
   late final int v;
+  late final bool isActive;
   
   RentalHouseModel.fromJson(Map<String, dynamic> json){
     id = json['_id'];
@@ -33,6 +35,7 @@ class RentalHouseModel {
     services = List.from(json['services']).map((e)=>Services.fromJson(e)).toList();
     managedByUser = json['managedByUser'];
     v = json['__v'];
+    isActive = json['isActive'];
   }
 
   Map<String, dynamic> toJson() {
@@ -47,6 +50,7 @@ class RentalHouseModel {
     _data['services'] = services.map((e)=>e.toJson()).toList();
     _data['managedByUser'] = managedByUser;
     _data['__v'] = v;
+    _data['isActive'] = isActive;
     return _data;
   }
 }

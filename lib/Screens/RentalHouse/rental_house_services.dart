@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:activos/Styles/colors.dart';
+import 'package:activos/Utils/Styles/colors.dart';
 
 import '../../Model/rental_house_model.dart';
 import '../../Provider/RentalHouseProvider/get_rental_house_provider.dart';
-import '../../components/blog.dart';
+import '../../Utils/components/ui_componets.dart';
 
 class RentalHouseServices extends StatefulWidget {
   const RentalHouseServices({Key? key}) : super(key: key);

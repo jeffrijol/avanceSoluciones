@@ -4,8 +4,8 @@ import 'package:activos/Provider/AuthProvider/auth_provider.dart';
 import 'package:activos/Screens/Authentication/login.dart';
 import 'package:activos/Utils/routers.dart';
 import 'package:activos/Utils/snack_message.dart';
-import 'package:activos/Widgets/button.dart';
-import 'package:activos/Widgets/text_field.dart';
+import 'package:activos/Utils/WidgetsLogin/button.dart';
+import 'package:activos/Utils/WidgetsLogin/text_field.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);

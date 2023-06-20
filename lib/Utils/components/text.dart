@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:activos/components/spacing.dart';
-import 'package:activos/components/typography.dart';
+import 'package:activos/Utils/components/spacing.dart';
+import 'package:activos/Utils/components/typography.dart';
 
 import 'color.dart';
 

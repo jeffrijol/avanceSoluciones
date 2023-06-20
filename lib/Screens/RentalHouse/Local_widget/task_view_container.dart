@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:activos/Screens/RentalHouse/task_details_page.dart';
-import 'package:activos/Styles/colors.dart';
+import 'package:activos/Utils/Styles/colors.dart';
 import 'package:activos/Utils/routers.dart';
 
 class TaskField extends StatefulWidget {

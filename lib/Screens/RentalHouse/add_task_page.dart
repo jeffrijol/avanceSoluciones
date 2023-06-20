@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:activos/Provider/TaskProvider/add_task_provider.dart';
 import 'package:activos/Utils/snack_message.dart';
-import 'package:activos/Widgets/button.dart';
-import 'package:activos/Widgets/text_field.dart';
+import 'package:activos/Utils/WidgetsLogin/button.dart';
+import 'package:activos/Utils/WidgetsLogin/text_field.dart';
 
 class CreateTaskPage extends StatefulWidget {
   const CreateTaskPage({Key? key}) : super(key: key);

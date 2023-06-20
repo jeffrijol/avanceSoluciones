@@ -3,27 +3,15 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:activos/components/color.dart';
-import 'package:activos/components/text.dart';
+import 'package:activos/Utils/components/color.dart';
+import 'package:activos/Utils/components/text.dart';
 
-import '../Model/rental_house_model.dart';
-import '../Screens/RentalHouse/rental_house_home.dart';
+import '../../Model/rental_house_model.dart';
+import '../../Screens/RentalHouse/rental_house_home.dart';
 import 'package:animate_do/animate_do.dart';
 
+import 'typography.dart';
 
-
-
-
-
-
-// ignore: slash_for_doc_comments
-/**
- * Menu/Navigation Bar
- *
- * A top menu bar with a text or image logo and
- * navigation links. Navigation links collapse into
- * a hamburger menu on screens smaller than 400px.
- */
 class MinimalMenuBar extends StatelessWidget {
   const MinimalMenuBar({Key? key}) : super(key: key);
 
@@ -61,14 +49,14 @@ class MinimalMenuBar extends StatelessWidget {
                             ModalRoute.withName(Navigator.defaultRouteName)),
                         style: menuButtonStyle,
                         child: const Text(
-                          "HOME",
+                          "PROPIEDADES",
                         ),
                       ),
                       TextButton(
                         onPressed: () {},
                         style: menuButtonStyle,
                         child: const Text(
-                          "PORTFOLIO",
+                          "DOCUMENTOS",
                         ),
                       ),
                       TextButton(
@@ -76,21 +64,7 @@ class MinimalMenuBar extends StatelessWidget {
                             Navigator.pushNamed(context, RentalHouseHome.name),
                         style: menuButtonStyle,
                         child: const Text(
-                          "STYLE",
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        style: menuButtonStyle,
-                        child: const Text(
-                          "ABOUT",
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        style: menuButtonStyle,
-                        child: const Text(
-                          "CONTACT",
+                          "NOTIFICACIONES",
                         ),
                       ),
                     ],
@@ -177,7 +151,6 @@ class SmartDeviceBox extends StatelessWidget {
   }
 }
 
-
 class RentalHouseList extends StatelessWidget {
   final RentalHouseModel rentalHouse;
   void Function(bool)? onChanged;
@@ -191,60 +164,44 @@ class RentalHouseList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FadeInRightBig(
-        child: ListTile(
+      child: ListTile(
           selectedTileColor: Colors.lightGreenAccent,
           selected: false,
           leading: CircleAvatar(
-            backgroundColor: rentalHouse.type == "Casa"
-                ? const Color(0xFF3E3E61)
-                : Colors.red.shade400,
+            backgroundColor:
+                rentalHouse.isActive ? Colors.red.shade400 : Colors.blueGrey,
             child: const Icon(Icons.house),
           ),
-          title: RichText(
-              text: TextSpan(children: [
-            const TextSpan(
-                text: 'Tipo:',
-                style: TextStyle(
-                    color: Color(0xFF3E3E61), fontWeight: FontWeight.bold)),
-            TextSpan(text: ' ${rentalHouse.type}'),
-            const TextSpan(
-                text: '. Construida el',
-                style: TextStyle(
-                    color: Color(0xFF3E3E61), fontWeight: FontWeight.bold)),
-            TextSpan(
-                text: ' ${rentalHouse.constructionDate.toString().substring(0, 10)}'),
-            const TextSpan(
-                text: ' y última reforma',
-                style: TextStyle(
-                    color: Color(0xFF3E3E61), fontWeight: FontWeight.bold)),
-            TextSpan(text: ' ${rentalHouse.lastReformDate.toString().substring(0, 10)}'),
-          ])),
           subtitle: RichText(
-              text: TextSpan(children: [
+              text: TextSpan(style: listTextStyle, children: [
             const TextSpan(
-                text: 'numero de baños :',
-                style: TextStyle(
-                    color: Color(0xFF3E3E61), fontWeight: FontWeight.bold)),
-            TextSpan(text: ' ${rentalHouse.bathrooms}'),
+              text: 'Construida el',
+            ),
+            TextSpan(
+                text:
+                    ' ${rentalHouse.constructionDate.toString().substring(0, 10)}'),
             const TextSpan(
-                text: '. administrada por:',
-                style: TextStyle(
-                    color: Color(0xFF3E3E61), fontWeight: FontWeight.bold)),
-            TextSpan(text: ' ${rentalHouse.managedByUser}'),
-            const TextSpan(
-                text: '. dirección:',
-                style: TextStyle(
-                    color: Color(0xFF3E3E61), fontWeight: FontWeight.bold)),
+              text: ' y reformada el',
+            ),
+            TextSpan(
+                text:
+                    ' ${rentalHouse.lastReformDate.toString().substring(0, 10)}'),
+          ])),
+          title: RichText(
+              text: TextSpan(style: listTextStyle, children: [
+            TextSpan(text: rentalHouse.type),
+            const TextSpan(text: ' de '),
             TextSpan(text: ' ${rentalHouse.address}'),
+            const TextSpan(text: ', administrada por: '),
+            TextSpan(text: ' ${rentalHouse.managedByUser}', style: listTittleTextStyle),
           ])),
           trailing: IconButton(
-              onPressed: () async {
-              },
-              icon: const Icon(Icons.send),
-              color: Colors.black12,
-            ) 
-        ),
-      );
-    
+            onPressed: () async {},
+            icon: rentalHouse.isActive
+                ? const Icon(Icons.send)
+                : const Icon(Icons.send_and_archive),
+            color: Colors.blueGrey,
+          )),
+    );
   }
 }

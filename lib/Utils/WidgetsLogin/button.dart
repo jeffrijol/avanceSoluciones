@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:activos/Styles/colors.dart';
+import 'package:activos/Utils/Styles/colors.dart';
 
 Widget customButton(
     {VoidCallback? tap,
