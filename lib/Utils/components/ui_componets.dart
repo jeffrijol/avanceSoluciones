@@ -10,6 +10,7 @@ import '../../Model/rental_house_model.dart';
 import '../../Screens/RentalHouse/rental_house_home.dart';
 import 'package:animate_do/animate_do.dart';
 
+import 'components.dart';
 import 'typography.dart';
 
 class MinimalMenuBar extends StatelessWidget {
@@ -82,6 +83,19 @@ class MinimalMenuBar extends StatelessWidget {
     );
   }
 }
+
+const Widget divider = Divider(color: Color(0xFFEEEEEE), thickness: 1);
+Widget dividerSmall = Container(
+  width: 40,
+  decoration: const BoxDecoration(
+    border: Border(
+      bottom: BorderSide(
+        color: Color(0xFFA0A0A0),
+        width: 1,
+      ),
+    ),
+  ),
+);
 
 class SmartDeviceBox extends StatelessWidget {
   final String smartDeviceName;
@@ -193,15 +207,127 @@ class RentalHouseList extends StatelessWidget {
             const TextSpan(text: ' de '),
             TextSpan(text: ' ${rentalHouse.address}'),
             const TextSpan(text: ', administrada por: '),
-            TextSpan(text: ' ${rentalHouse.managedByUser}', style: listTittleTextStyle),
+            TextSpan(
+                text: ' ${rentalHouse.managedByUser}',
+                style: listTittleTextStyle),
           ])),
-          trailing: IconButton(
-            onPressed: () async {},
-            icon: rentalHouse.isActive
-                ? const Icon(Icons.send)
-                : const Icon(Icons.send_and_archive),
-            color: Colors.blueGrey,
+          trailing: Hero(
+            tag: rentalHouse.id,
+            child: IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SecondPage(heroTag: rentalHouse.id, rentalHouse: rentalHouse,),
+                  ),
+                );
+              },
+              icon: rentalHouse.isActive
+                  ? const Icon(Icons.send)
+                  : const Icon(Icons.send_and_archive),
+              color: Colors.blueGrey,
+            ),
           )),
+    );
+  }
+}
+
+
+class SecondPage extends StatelessWidget {
+  final String heroTag;
+  final RentalHouseModel rentalHouse;
+  const SecondPage({super.key, required this.heroTag, required this.rentalHouse});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Gestion de inmuebles",style: subtitleTextStyle, ), backgroundColor: Colors.white12,),
+      body: Stack(
+        children: <Widget>[
+          SingleChildScrollView(
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 32),
+              child: Column(
+                children: <Widget>[
+                  Align(
+                    alignment: Alignment.center,
+                    child: Container(
+                      margin: marginBottom12,
+                      child: Text(rentalHouse.address, style: headlineTextStyle),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.center,
+                    child: Container(
+                      margin: marginBottom24,
+                      child: Text("Alguna descripción, sería ver que dato pintamos",
+                          style: subtitleTextStyle),
+                    ),
+                  ),
+                  divider,
+                  Container(
+                    margin: marginBottom40,
+                  ),
+                  Align(
+                    alignment: Alignment.center,
+                    child: Container(
+                      margin: marginBottom12,
+                      child: Text("Caracteristicas del inmueble",
+                          style: headlineSecondaryTextStyle),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.center,
+                    child: Container(
+                      margin: marginBottom24,
+                      child: Text("Una tabla con los numero de baños, sanitarios, escaleras",
+                          style: subtitleTextStyle),
+                    ),
+                  ),
+                  dividerSmall,
+                  Container(
+                    margin: marginBottom24,
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Container(
+                      margin: marginBottom24,
+                      child: Text("Servicios", style: headlineTextStyle),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Container(
+                      margin: marginBottom24,
+                      child: Text("Otro tipo de encabezado",
+                          style: headlineSecondaryTextStyle),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Container(
+                      margin: marginBottom24,
+                      child: Text("Formato subtitulo", style: subtitleTextStyle),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Container(
+                      margin: marginBottom40,
+                      child: Text(
+                          "Body text is the default text style. Use this text style for website content and paragraphs. This text is chosen to be easy and comfortable to read. As the default text style for large blocks of text, particular attention is placed on the choice of font. Some fonts are more comfortable to read than others.",
+                          style: bodyTextStyle),
+                    ),
+                  ),
+                  divider,
+                  //const Footer(),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+      backgroundColor: Colors.white,
     );
   }
 }
