@@ -5,7 +5,6 @@ import 'package:activos/Utils/snack_message.dart';
 
 import '../../Utils/WidgetsLogin/gradient_button.dart';
 import '../../Utils/WidgetsLogin/login_field.dart';
-import '../../Utils/WidgetsLogin/social_button.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
