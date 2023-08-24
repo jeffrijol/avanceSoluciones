@@ -14,26 +14,21 @@ class GetRentalHouse {
     final token = await DatabaseProvider().getToken();
 
        
-    String _url = "$url/rentalHouse/user/$userId";
+    String urlFinal = "$url/rentalHouse/user/$userId";
 
     try {
       final response = await http
-          .get(Uri.parse(_url), headers: {'Authorization': 'Bearer $token'});
+          .get(Uri.parse(urlFinal), headers: {'Authorization': 'Bearer $token'});
 
     
 
       if (response.statusCode == 200 || response.statusCode == 201) {
-        //TODO falta validar si no hay rental house que mostrar
-        //return RentalHouseModel.fromJson(json.decode(response.body));
         return List.from(json.decode(response.body)).map((e)=>RentalHouseModel.fromJson(e)).toList();
       } else {
-        print(response.body);
-        // final notificationModel = notificationModelFromJson(request.body);
 
         return Future.error(response.statusCode);
       }
     } catch (e) {
-      print(e);
       return Future.error(e.toString());
     }
   }

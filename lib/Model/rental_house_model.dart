@@ -39,19 +39,19 @@ class RentalHouseModel {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['_id'] = id;
-    _data['address'] = address;
-    _data['type'] = type;
-    _data['constructionDate'] = constructionDate;
-    _data['lastReformDate'] = lastReformDate;
-    _data['bedrooms'] = bedrooms;
-    _data['bathrooms'] = bathrooms;
-    _data['services'] = services.map((e)=>e.toJson()).toList();
-    _data['managedByUser'] = managedByUser;
-    _data['__v'] = v;
-    _data['isActive'] = isActive;
-    return _data;
+    final data = <String, dynamic>{};
+    data['_id'] = id;
+    data['address'] = address;
+    data['type'] = type;
+    data['constructionDate'] = constructionDate;
+    data['lastReformDate'] = lastReformDate;
+    data['bedrooms'] = bedrooms;
+    data['bathrooms'] = bathrooms;
+    data['services'] = services.map((e)=>e.toJson()).toList();
+    data['managedByUser'] = managedByUser;
+    data['__v'] = v;
+    data['isActive'] = isActive;
+    return data;
   }
 }
 
@@ -75,11 +75,11 @@ class Services {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['name'] = name;
-    _data['provider'] = provider;
-    _data['contractDate'] = contractDate;
-    _data['_id'] = id;
-    return _data;
+    final data = <String, dynamic>{};
+    data['name'] = name;
+    data['provider'] = provider;
+    data['contractDate'] = contractDate;
+    data['_id'] = id;
+    return data;
   }
 }

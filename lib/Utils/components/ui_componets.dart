@@ -3,15 +3,12 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:activos/Utils/components/color.dart';
-import 'package:activos/Utils/components/text.dart';
 
 import '../../Model/rental_house_model.dart';
 import '../../Screens/RentalHouse/rental_house_home.dart';
 import 'package:animate_do/animate_do.dart';
 
 import 'components.dart';
-import 'typography.dart';
 
 class MinimalMenuBar extends StatelessWidget {
   const MinimalMenuBar({Key? key}) : super(key: key);
@@ -114,14 +111,14 @@ class SmartDeviceBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(15.0),
+      padding: const EdgeInsets.all(15.0),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24),
-          color: powerOn ? Colors.grey[900] : Color.fromARGB(44, 164, 167, 189),
+          color: powerOn ? Colors.grey[900] :  const Color.fromARGB(44, 164, 167, 189),
         ),
         child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 25.0),
+          padding: const EdgeInsets.symmetric(vertical: 25.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -137,7 +134,7 @@ class SmartDeviceBox extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsets.only(left: 25.0),
+                      padding: const EdgeInsets.only(left: 25.0),
                       child: Text(
                         smartDeviceName,
                         style: TextStyle(

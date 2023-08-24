@@ -24,7 +24,7 @@ class AddTaskProvider extends ChangeNotifier {
     _status = true;
     notifyListeners();
 
-    final _url = "$url/tasks/";
+    final urlFinal = "$url/tasks/";
 
     final body = {
       "title": title,
@@ -34,14 +34,12 @@ class AddTaskProvider extends ChangeNotifier {
       "reminderPeriod": "2022-07-19T12:00:00.000+00:00"
     };
 
-    final result = await http.post(Uri.parse(_url),
+    final result = await http.post(Uri.parse(urlFinal),
         body: json.encode(body), headers: {'Authorization': 'Bearer $token'});
 
-    print(result.statusCode);
 
     if (result.statusCode == 200 || result.statusCode == 201) {
       final res = result.body;
-      print(res);
       _status = false;
 
       _response = json.decode(res)['message'];
@@ -49,7 +47,6 @@ class AddTaskProvider extends ChangeNotifier {
       notifyListeners();
     } else {
       final res = result.body;
-      print(res);
 
       _response = json.decode(res)['message'];
 

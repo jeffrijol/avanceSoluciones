@@ -47,7 +47,6 @@ class _RentalHouseHomeState extends State<RentalHouseHome> {
                   FutureBuilder<List<RentalHouseModel>>(
                       future: GetRentalHouse().getRentalHouse(),
                       builder: (BuildContext context, AsyncSnapshot snapshot) {
-                        print(snapshot);
                         if (snapshot.hasError) {
                           return const Center(child: Text('Error Occured'));
                         } else if (snapshot.hasData) {

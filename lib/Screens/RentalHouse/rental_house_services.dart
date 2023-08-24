@@ -47,7 +47,6 @@ class _RentalHouseServicesState extends State<RentalHouseServices> {
                   FutureBuilder<List<RentalHouseModel>>(
                       future: GetRentalHouse().getRentalHouse(),
                       builder: (BuildContext context, AsyncSnapshot snapshot) {
-                        print(snapshot);
                         if (snapshot.hasError) {
                           return const Center(child: Text('Error Occured'));
                         } else if (snapshot.hasData) {
@@ -87,7 +86,7 @@ class _RentalHouseServicesState extends State<RentalHouseServices> {
                                   snapshot.data!.length,
                                   (index) {
                                     final data = snapshot.data![index];
-                                    return Container(
+                                    return SizedBox(
                                       width: MediaQuery.of(context).size.width *
                                               0.5 -
                                           15,

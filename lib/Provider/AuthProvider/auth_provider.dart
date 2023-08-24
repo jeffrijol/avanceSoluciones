@@ -42,7 +42,6 @@ class AuthenticationProvider extends ChangeNotifier {
       "email": email,
       "pass": password
     };
-    print(body);
 
     try {
       http.Response req =
@@ -58,7 +57,6 @@ class AuthenticationProvider extends ChangeNotifier {
 
         _resMessage = res['message'];
 
-        print(res);
         _isLoading = false;
         notifyListeners();
       }
@@ -71,7 +69,6 @@ class AuthenticationProvider extends ChangeNotifier {
       _resMessage = "Please try again`";
       notifyListeners();
 
-      print(":::: $e");
     }
   }
 
@@ -96,13 +93,11 @@ class AuthenticationProvider extends ChangeNotifier {
         },
         body: json.encode(body),
       );
-      print(response.statusCode);
       
 
       if (response.statusCode == 200 || response.statusCode == 201) {
         final res = json.decode(response.body);
 
-        print(res);
         _isLoading = false;
         _resMessage = "Login successfull!";
         notifyListeners();
@@ -112,14 +107,12 @@ class AuthenticationProvider extends ChangeNotifier {
         final token = res['token'];
         DatabaseProvider().saveToken(token);
         DatabaseProvider().saveUserId(userId);
-        // ignore: use_build_context_synchronously
         PageNavigator(ctx: context).nextPageOnly(page: const HomePage());
       } else {
         final res = json.decode(response.body);
 
         _resMessage = res['message'];
 
-        print(res);
         _isLoading = false;
         notifyListeners();
       }
@@ -132,7 +125,6 @@ class AuthenticationProvider extends ChangeNotifier {
       _resMessage = "Please try again`";
       notifyListeners();
 
-      print(":::: $e");
     }
   }
 

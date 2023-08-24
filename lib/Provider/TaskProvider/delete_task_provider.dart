@@ -26,16 +26,14 @@ class DeleteTaskProvider extends ChangeNotifier {
     _status = true;
     notifyListeners();
 
-    final _url = "$url/tasks/$taskId";
+    final urlFinal = "$url/tasks/$taskId";
 
     final result = await http
-        .delete(Uri.parse(_url), headers: {'Authorization': "Bearer $token"});
+        .delete(Uri.parse(urlFinal), headers: {'Authorization': "Bearer $token"});
 
-    print(result.statusCode);
 
     if (result.statusCode == 200 || result.statusCode == 201) {
       final res = result.body;
-      print(res);
       _status = false;
 
       _response = json.decode(res)['message'];
@@ -44,7 +42,6 @@ class DeleteTaskProvider extends ChangeNotifier {
       PageNavigator(ctx: ctx).nextPageOnly(page: const RentalHouseHome());
     } else {
       final res = result.body;
-      print(res);
       _status = false;
 
       _response = json.decode(res)['message'];

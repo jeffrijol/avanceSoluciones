@@ -12,10 +12,10 @@ class UserModel {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['user'] = user.toJson();
-    _data['token'] = token;
-    return _data;
+    final data = <String, dynamic>{};
+    data['user'] = user.toJson();
+    data['token'] = token;
+    return data;
   }
 }
 
@@ -54,16 +54,16 @@ class User {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['_id'] = id;
-    _data['email'] = email;
-    _data['pass'] = pass;
-    _data['displayName'] = displayName;
-    _data['signupDate'] = signupDate;
-    _data['userId'] = userId;
-    _data['rol'] = rol;
-    _data['avatar'] = avatar;
-    _data['__v'] = v;
-    return _data;
+    final data = <String, dynamic>{};
+    data['_id'] = id;
+    data['email'] = email;
+    data['pass'] = pass;
+    data['displayName'] = displayName;
+    data['signupDate'] = signupDate;
+    data['userId'] = userId;
+    data['rol'] = rol;
+    data['avatar'] = avatar;
+    data['__v'] = v;
+    return data;
   }
 }
