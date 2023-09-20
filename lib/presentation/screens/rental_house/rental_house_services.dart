@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:activos/Utils/Styles/colors.dart';
 
-import '../../Model/rental_house_model.dart';
-import '../../Provider/RentalHouseProvider/get_rental_house_provider.dart';
-import '../../Utils/components/ui_componets.dart';
+import '../../../domain/domain.dart';
+import '../../../Utils/components/ui_componets.dart';
+import '../../providers/providers.dart';
 
-class RentalHouseHome extends StatefulWidget {
-  const RentalHouseHome({Key? key}) : super(key: key);
+class RentalHouseServices extends StatefulWidget {
+  const RentalHouseServices({Key? key}) : super(key: key);
   static const String name = 'rentalHouse';
 
   @override
-  State<RentalHouseHome> createState() => _RentalHouseHomeState();
+  State<RentalHouseServices> createState() => _RentalHouseServicesState();
 }
 
-class _RentalHouseHomeState extends State<RentalHouseHome> {
+class _RentalHouseServicesState extends State<RentalHouseServices> {
   // power button switched
   void powerSwitchChanged(bool value, int index) {
     setState(() {});
@@ -86,8 +86,18 @@ class _RentalHouseHomeState extends State<RentalHouseHome> {
                                   snapshot.data!.length,
                                   (index) {
                                     final data = snapshot.data![index];
-                                    return RentalHouseList(rentalHouse: data, onChanged: (value) =>
-                                            powerSwitchChanged(value, index),);
+                                    return SizedBox(
+                                      width: MediaQuery.of(context).size.width *
+                                              0.5 -
+                                          15,
+                                      child: SmartDeviceBox(
+                                        smartDeviceName: data.address,
+                                        iconPath: data.address,
+                                        powerOn: true,
+                                        onChanged: (value) =>
+                                            powerSwitchChanged(value, index),
+                                      ),
+                                    );
                                   },
                                 ),
                               ),

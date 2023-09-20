@@ -1,5 +1,5 @@
-import 'package:activos/Provider/Database/db_provider.dart';
-import 'package:activos/Screens/Authentication/login.dart';
+import 'package:activos/presentation/providers/providers.dart';
+import 'package:activos/presentation/screens/screens.dart';
 import 'package:activos/Utils/routers.dart';
 import 'package:flutter/material.dart';
 

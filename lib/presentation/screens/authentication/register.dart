@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:activos/Provider/AuthProvider/auth_provider.dart';
-import 'package:activos/Screens/Authentication/login.dart';
+
 import 'package:activos/Utils/routers.dart';
 import 'package:activos/Utils/snack_message.dart';
 import 'package:activos/Utils/WidgetsLogin/button.dart';
 import 'package:activos/Utils/WidgetsLogin/text_field.dart';
+
+import '../../providers/providers.dart';
+import '../screens.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);

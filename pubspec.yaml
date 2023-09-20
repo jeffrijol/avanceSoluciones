@@ -31,17 +31,26 @@ environment:
 dependencies:
   animate_do: ^3.0.2
   animations: ^2.0.7
+  build_runner: ^2.4.6
   cupertino_icons: ^1.0.2
+  custom_lint: ^0.5.2
+  dio: ^5.3.2
   flutter:
     sdk: flutter
+  flutter_dotenv: ^5.1.0
+  flutter_riverpod: ^2.3.7
   flutter_svg: ^2.0.6
+  get_it: ^7.6.2
   google_fonts: ^4.0.4
   http: ^0.13.6
+  jwt_decoder: ^2.0.1
   navigation_utils: ^0.0.1-pre.1
   provider: ^6.0.5
   responsive_framework: ^0.2.0
+  riverpod_annotation: ^2.1.2
+  riverpod_generator: ^2.2.6
+  riverpod_lint: ^2.0.1
   shared_preferences: ^2.1.1
-  
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -59,8 +68,9 @@ flutter:
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
-     - assets/images/
-     - assets/svgs/
+    - assets/images/
+    - assets/svgs/
+    - assets/env/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see

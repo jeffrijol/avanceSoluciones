@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-import 'Screens/RentalHouse/rental_house_home.dart';
-import 'Screens/RentalHouse/rental_house_services.dart';
+import 'package:activos/presentation/screens/screens.dart';
 import 'routes.dart';
 
 class HomePage extends StatelessWidget {

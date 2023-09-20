@@ -1,13 +1,13 @@
 import 'dart:convert';
 
-import 'package:activos/Constants/url.dart';
-import 'package:activos/Provider/Database/db_provider.dart';
+import 'package:activos/config/enviroments.dart';
+import 'package:activos/presentation/providers/db_provider.dart';
 import 'package:http/http.dart' as http;
 
-import '../../Model/rental_house_model.dart';
+import '../../domain/domain.dart';
 
 class GetRentalHouse {
-  final url = AppUrl.baseUrl;
+  final url = Enviroments.baseUrl;
 
   Future<List<RentalHouseModel>> getRentalHouse() async {
     final userId = await DatabaseProvider().getUserId();

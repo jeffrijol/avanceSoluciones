@@ -4,10 +4,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../Model/rental_house_model.dart';
-import '../../Screens/RentalHouse/rental_house_home.dart';
+import '../../presentation/screens/screens.dart';
 import 'package:animate_do/animate_do.dart';
 
+import '../../domain/domain.dart';
 import 'components.dart';
 
 class MinimalMenuBar extends StatelessWidget {

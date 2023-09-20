@@ -4,17 +4,17 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:activos/Constants/url.dart';
+import 'package:activos/config/config.dart';
 import 'package:http/http.dart' as http;
-import 'package:activos/Provider/Database/db_provider.dart';
-import 'package:activos/Screens/Authentication/login.dart';
+import 'package:activos/presentation/providers/providers.dart';
+import 'package:activos/presentation/screens/screens.dart';
 import 'package:activos/Utils/routers.dart';
 
 import '../../home_page.dart';
 
 class AuthenticationProvider extends ChangeNotifier {
   ///Base Url
-  final requestBaseUrl = AppUrl.baseUrl;
+  final requestBaseUrl = Enviroments.baseUrl;
 
   ///Setter
   bool _isLoading = false;

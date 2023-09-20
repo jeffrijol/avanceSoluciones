@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:activos/Utils/Styles/colors.dart';
 
-import '../../Model/rental_house_model.dart';
-import '../../Provider/RentalHouseProvider/get_rental_house_provider.dart';
-import '../../Utils/components/ui_componets.dart';
+import '../../../domain/domain.dart';
+import '../../providers/providers.dart';
+import '../../../Utils/components/ui_componets.dart';
 
-class RentalHouseServices extends StatefulWidget {
-  const RentalHouseServices({Key? key}) : super(key: key);
+class RentalHouseHome extends StatefulWidget {
+  const RentalHouseHome({Key? key}) : super(key: key);
   static const String name = 'rentalHouse';
 
   @override
-  State<RentalHouseServices> createState() => _RentalHouseServicesState();
+  State<RentalHouseHome> createState() => _RentalHouseHomeState();
 }
 
-class _RentalHouseServicesState extends State<RentalHouseServices> {
+class _RentalHouseHomeState extends State<RentalHouseHome> {
   // power button switched
   void powerSwitchChanged(bool value, int index) {
     setState(() {});
@@ -23,9 +23,10 @@ class _RentalHouseServicesState extends State<RentalHouseServices> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: white,
-      body: Stack(
+      body: const Stack(
         children: <Widget>[
-          SingleChildScrollView(
+          Text("HomePage")
+          /* SingleChildScrollView(
             //scrollDirection: Axis.horizontal,
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 32),
@@ -86,18 +87,8 @@ class _RentalHouseServicesState extends State<RentalHouseServices> {
                                   snapshot.data!.length,
                                   (index) {
                                     final data = snapshot.data![index];
-                                    return SizedBox(
-                                      width: MediaQuery.of(context).size.width *
-                                              0.5 -
-                                          15,
-                                      child: SmartDeviceBox(
-                                        smartDeviceName: data.address,
-                                        iconPath: data.address,
-                                        powerOn: true,
-                                        onChanged: (value) =>
-                                            powerSwitchChanged(value, index),
-                                      ),
-                                    );
+                                    return RentalHouseList(rentalHouse: data, onChanged: (value) =>
+                                            powerSwitchChanged(value, index),);
                                   },
                                 ),
                               ),
@@ -114,7 +105,7 @@ class _RentalHouseServicesState extends State<RentalHouseServices> {
                 ],
               ),
             ),
-          ),
+          ), */
         ],
       ),
     );
